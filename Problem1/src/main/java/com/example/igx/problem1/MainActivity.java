@@ -1,13 +1,16 @@
 package com.example.igx.problem1;
 
-import android.support.v7.app.AppCompatActivity;
+import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity /* implements Something1, Something2 */ {
+
+    SensorManager sensorManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +25,18 @@ public class MainActivity extends AppCompatActivity /* implements Something1, So
         final TextView text_selectedType = (TextView) findViewById(R.id.text_selectedType);
         final EditText edit_phoneNumber = (EditText) findViewById(R.id.edit_phoneNumber);
 
+
         btn_getLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                text_selectedType.setText("LOCATION");
             }
         });
 
         btn_getSensors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                text_selectedType.setText("SENSOR");
             }
         });
 

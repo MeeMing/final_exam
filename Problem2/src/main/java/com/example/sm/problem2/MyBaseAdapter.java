@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
+
 import java.util.ArrayList;
+
+import static android.R.attr.data;
 
 public class MyBaseAdapter extends BaseAdapter implements AdapterView.OnItemClickListener{
 
@@ -67,5 +70,10 @@ public class MyBaseAdapter extends BaseAdapter implements AdapterView.OnItemClic
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // need something here
+        ArrayAdapter<Employee> adapter;
+        if(convertView==null){
+            adapter = new AdapterView<Employee>(mContext, R.layout.list_view_item_layout, data);
+        }
+        return convertView;
     }
 }
